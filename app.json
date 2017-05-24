@@ -1,0 +1,22 @@
+{
+  "name": "sales-management",
+  "description": "",
+  "scripts": {
+  },
+  "env": {
+    "GITHUB_USERNAME": {
+      "required": true
+    },
+    "OTHER_VAR": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
