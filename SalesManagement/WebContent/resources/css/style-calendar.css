@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+
+body {
+
+}
+.fc-past{
+     color: #c7c7c7;
+     cursor: default;
+}
+.fc-past a {
+	cursor: default;
+	color: #898989;
+}
+.fc-future  a{
+	font-weight: bold;
+}
+.fc-today{
+	font-weight: bold;
+}
+.fc-content{
+	
+}
+#calendar {
+	max-width: 900px;
+	margin: 0 auto;
+	background: #fbfbfb;
+	border: 1px solid #b4b4b4;
+}
+.fc-left{
+	margin: 5px;
+
+}
+.fc-right{
+	margin: 5px;
+}
+.fc-left h2{
+	font-size: 20px;
+	font-variant: normal;
+	float: left;
+}
+

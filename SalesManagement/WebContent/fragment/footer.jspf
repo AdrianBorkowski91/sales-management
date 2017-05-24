@@ -1,0 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+    
+    <footer class="navbar navbar-default navbar-static-bottom">
+      <div class="container">
+        <p class="navbar-text">Sales-Menagement create by <a href="https://www.facebook.com/adrian.borkowski.315">Adrian Borkowski</a></p>
+      </div>
+    </footer>

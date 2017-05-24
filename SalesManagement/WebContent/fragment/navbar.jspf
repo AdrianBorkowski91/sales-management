@@ -1,0 +1,65 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+    <c:if  test="${empty sessionScope.user }">
+		<jsp:forward page="login" /> 
+	</c:if>  
+	
+	<form id="logout" method="post" action="login">
+	<input type="hidden" name="sessionRemove" value="logout"/>
+
+     <nav class = "navbar-inverse navbar-fixed-top">
+      <div class="container">	
+        <a  onClick="window.location='/SalesManagement/myaccount';" id="menu-0" class="navbar-brand"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Moje konto</a>
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav nav-pills nav-justified">
+        	<li onClick="window.location='/SalesManagement/myclients';" id="menu-1" ><a style="height: 75px; margin: 1px;"><span class="glyphicon glyphicon-user" aria-hidden="true"> </span><br>Moi klienci</a></li>
+            <li onClick="window.location='/SalesManagement/calendarmeetings';" id="menu-2" ><a style="height: 75px; margin: 1px;"><span class="glyphicon glyphicon-calendar" aria-hidden="true"> </span><br>Kalendarz spotkań</a></li>
+            <li onClick="window.location='/SalesManagement/historyofmeetings';" id="menu-3" ><a style="height: 75px; margin: 1px;"><span class="glyphicon glyphicon-book" aria-hidden="true"></span><br>Historia sprzedaży</a></li>
+         	<c:choose>
+    			<c:when test="${sessionScope.user.account.raportModified eq 'checked'}">
+    				<li  onClick="window.location='/SalesManagement/myraports';" id="menu-4" ><a style="height: 75px; margin: 1px;"><span class=" glyphicon glyphicon-stats" aria-hidden="true"></span><br>Raporty sprzedaży</a></li>    
+    			</c:when>
+   				<c:otherwise>
+   					<li id="menu-4" ><a style="color: grey; height: 75px; margin: 1px;"><span class=" glyphicon glyphicon-stats" aria-hidden="true" ></span><br>Raporty sprzedaży</a></li>   
+   				</c:otherwise>
+   			</c:choose>       	
+          <li>
+          <div align="right" >
+          	<a onclick="document.getElementById('logout').submit();" style="font-size: 16px;"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Wyloguj się</a><br>    
+          	<c:if test="${sessionScope.user.account.reminder eq 'checked'}">
+          		<p style="font-size: 10px; color: white;">Jutro masz spotkań: <span id="counterMeetings" class="badge"></span></p>
+          	</c:if>	
+          </div> 
+          </li>  
+          </ul>
+        </div>
+      </div>
+   	 </nav>
+   	</form>
+   	
+   	<br>
+   	<script>
+		var idMenu= document.getElementById('menu-navbar').value;
+		if(idMenu!='menu-0'){
+		document.getElementById(idMenu).className = "active";
+		}
+		else{
+		document.getElementById(idMenu).style.color = "white"; 
+		}
+		
+		
+		var counterMeetings = "${counterMeetings}";
+		if(counterMeetings==0){
+			document.getElementById("counterMeetings").style.color = "white"; 
+			document.getElementById("counterMeetings").innerText = counterMeetings;
+		}
+		else if(counterMeetings>0 && counterMeetings<9){
+			document.getElementById("counterMeetings").style.color = "red";
+			document.getElementById("counterMeetings").innerText = counterMeetings;
+		}
+		else{
+			document.getElementById("counterMeetings").style.color = "red";
+			document.getElementById("counterMeetings").innerText  = "9+";
+		}	
+   	</script>

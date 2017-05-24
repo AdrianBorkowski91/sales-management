@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>SalesManagement</display-name>
+  <security-constraint>
+    <display-name>Controllers</display-name>
+    <web-resource-collection>
+      <web-resource-name>Auth</web-resource-name>
+      <description>Resources that can be accessed after login</description>
+      <url-pattern>/calendarmeetings</url-pattern>
+      <url-pattern>/calendarmeetings-edit</url-pattern>
+      <url-pattern>/calendarmeetings-new</url-pattern>
+      <url-pattern>/historyofmeetings</url-pattern>
+      <url-pattern>/historyofmeetings-edit</url-pattern>
+      <url-pattern>/historyofmeetings-preview</url-pattern>
+      <url-pattern>/login</url-pattern>
+      <url-pattern>/myaccount</url-pattern>
+      <url-pattern>/myclients-edit</url-pattern>
+      <url-pattern>/myclients</url-pattern>
+      <url-pattern>/myclients-new</url-pattern>
+      <url-pattern>/register</url-pattern>
+      <url-pattern>/remiderpassword</url-pattern>
+      <http-method>GET</http-method>
+      <http-method>POST</http-method>
+    </web-resource-collection>
+  </security-constraint>
+  <welcome-file-list>
+    <welcome-file>/WEB-INF/login.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
